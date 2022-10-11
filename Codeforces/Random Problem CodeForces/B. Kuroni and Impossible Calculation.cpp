@@ -62,17 +62,22 @@ t2r
     int n;
     ll m;
     cin>>n>>m;
-    vl v(n);
-    for(auto &x:v){
+    int arr[n];
+    for(auto &x:arr){
         cin>>x;
     }
+    /* in_range(i,0,n){
+        cin>>arr[i];
+    }
+    */
     if(n>m){
         cout<<0<<endl;
     }else{
         ll ans=1;
         for(int i=0;i<n;i++){
             for(int j=i+1;j<n;j++){
-                ans=(ans*llabs(v[i]-v[j]))%m;
+                ans*=(abs(arr[i]-arr[j]))%m;
+                ans%=m;
             }
         }
         cout<<ans<<endl;
